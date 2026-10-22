@@ -17,11 +17,12 @@ return new class extends Migration
                 ->constrained('specialties')
                 ->cascadeOnDelete();
             $table->string('name');
+            $table->string('crm', 13);
             $table->string('phone', 20);
             $table->time('work_start_time');
             $table->time('work_end_time');
-            $table->int('slot_duration');
-            $table->boolean('is_active')default(true);
+            $table->integer('slot_duration');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

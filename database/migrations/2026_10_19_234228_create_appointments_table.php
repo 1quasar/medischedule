@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('patient_id')
-                ->constrained('users', 'user_id')
+                ->constrained('users', 'id')
                 ->cascadeOnDelete();
             $table->foreignId('doctor_id')
                 ->constrained('doctors')
                 ->cascadeOnDelete();
             $table->datetime('appointment_date');
             $table->string('status')->default('scheduled');
-            $table->text('notes');
+            $table->text('notes')->nullable();
             $table->timestamp('canceled_at')->nullable();
             $table->timestamps();
         });
