@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('cpf', 14);
+            $table->string('cpf', 14)->unique();
             $table->string('phone', 20);
             $table->enum('role', ['patient', 'admin'])
                 ->default('patient');

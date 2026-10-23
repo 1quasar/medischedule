@@ -17,7 +17,7 @@ return new class extends Migration
                 ->constrained('specialties')
                 ->cascadeOnDelete();
             $table->string('name');
-            $table->string('crm', 13);
+            $table->string('crm', 9);
             $table->string('phone', 20);
             $table->time('work_start_time');
             $table->time('work_end_time');
