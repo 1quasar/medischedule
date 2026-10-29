@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Appointment extends Model
 {
     protected $fillable = [
+        'title',
         'patient_id',
         'doctor_id',
         'appointment_date',
