@@ -46,17 +46,25 @@ class AppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AppointmentRequest $request)
     {
-        //
+        Appointment::create($request->validated());
+
+        return redirect()
+            ->route('appointments.index')
+            ->with('success', 'Consulta agendada com sucesso!')
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Appointment $appointment)
     {
-        //
+        $appointment->load([
+            'appointment.patient'
+            'appointment.doctor'
+            'appointment.appointment_date'
+        ]);
     }
 
     /**
