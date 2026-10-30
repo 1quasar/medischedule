@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Model\User;
 use App\Models\Specialty;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,5 +33,15 @@ class Doctor extends Model
     public function specialty(): BelongsTo
     {
         return $this->belongsTo(Specialty::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    
+    public function appointments(): HasMany
+    {
+        return $this->hasMany(Appointment::class);
     }
 }

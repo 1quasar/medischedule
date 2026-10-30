@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('cpf', 14)->unique();
             $table->string('phone', 20);
-            $table->enum('role', ['patient', 'admin'])
+            $table->enum('role', ['patient', 'doctor', 'admin'])
                 ->default('patient');
             $table->rememberToken();
             $table->timestamps();
